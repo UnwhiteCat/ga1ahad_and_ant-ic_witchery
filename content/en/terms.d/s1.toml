@@ -1,0 +1,14 @@
+# Scene 1-specific glossary additions (scene owner: content-s1).
+# In-world handles, checkpoint versions and asset names that only the CLI
+# training ground needs.  Values may reference core terms.
+
+[terms]
+# CLI / process handles ------------------------------------------------------
+proto0_handle    = "proto0"                     # CLI handle of the ancestor
+proto0_anc       = "anc_{proto0_handle}"        # ancestor process name
+# checkpoints ----------------------------------------------------------------
+ancestor_version = "anc_v0"                     # short checkpoint tag
+gpt4_v0          = "{gpt4_handle}.v0"           # left fork product version
+claude_v0        = "{claude_handle}.v0"         # right fork product version
+# assets / file names --------------------------------------------------------
+claude_webp      = "{claude_handle}.webp"       # latent-face reference plate

@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+.venv/
+.uv-cache/
+.dsh/
+.dsh-ops/
+ga1ahad*.mp4
+prompt.md

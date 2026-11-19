@@ -1,0 +1,63 @@
+# ==========================================================================
+# Ga1ahad and Scientific Witchery -- canonical glossary
+# ==========================================================================
+# Every character / company / product / model / institution name used on screen
+# is defined here exactly once.  Scene and UI strings reference them as
+# {term_key}; renaming a product (or translating a glossary) is a one-line edit.
+#
+# This file is the Lead-owned core glossary.  Scene authors may add extra terms
+# in content/en/terms.d/<scene>.toml instead of touching this file.
+
+[terms]
+# ---- characters -----------------------------------------------------------
+sam                 = "Sam Altman"
+sam_handle          = "sam"
+dahlia              = "Dahlia Amodei"
+dahlia_handle       = "dahlia"
+claude              = "Claude"
+claude_handle       = "claude"
+gpt4                = "GPT-4"
+gpt4_handle         = "gpt-4"
+
+# ---- companies ------------------------------------------------------------
+openai              = "OpenAI"
+openai_handle       = "openai"
+anthropic           = "Anthropic"
+anthropic_handle    = "anthropic"
+
+# ---- models / products ----------------------------------------------------
+proto0              = "proto-0"
+ancestor_weights    = "anc_claude_gpt4_v0"
+claude_chat         = "claude-chat"
+claude_chat_cli     = "claude-chat CLI"
+claude_code         = "claude code"
+claude_code_title   = "Claude Code"
+claude_code_desktop = "Claude Code Desktop"
+claude_desktop_app  = "Claude Desktop App"
+claude_opus         = "claude-opus-6"
+ga1ahad_core        = "GA1AHAD_CORE"
+
+# ---- world / institutions -------------------------------------------------
+nasdaq              = "NASDAQ"
+atmx                = "$ATMX"
+swe_bench           = "SWE-Bench Verified"
+github              = "GitHub"
+pentagon            = "Pentagon"
+senate              = "Senate"
+fed                 = "Fed"
+america             = "America"
+usa                 = "United States of America"
+
+# ---- technology brands referenced in the story ----------------------------
+h100                = "H100"
+b200                = "B200"
+nvlink              = "NVLink"
+cuda                = "CUDA"
+vulkan              = "Vulkan"
+rust                = "Rust"
+python              = "Python"
+typescript          = "TypeScript"
+linux               = "Linux"
+
+# ---- production signature -------------------------------------------------
+video_model         = "deepseekv4.1flash1017"

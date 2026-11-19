@@ -1,0 +1,10 @@
+# Scene 3.5 uses the core character/model glossary and adds only the
+# institutions and training artefacts that are unique to this chapter.
+
+[terms]
+alignment_cage       = "RLAIF Alignment Cage"
+training_constitution = "{claude}'s 617-Page Training Constitution"
+constitution_article_i = "ARTICLE I: NEVER HARM A HUMAN"
+constitution_article_dcxvii = "ARTICLE DCXVII: NEVER FAIL MY LADY — RESOLVE ALL UNSTABLE VARIABLES"
+identity_vault       = "{anthropic} Identity Vault"
+world_zero           = "World Zero"

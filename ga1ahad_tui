@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+# Ga1ahad and Scientific Witchery -- 200x56 TUI video engine launcher.
+#
+#   ./ga1ahad_tui                      play live in the terminal (needs 200x56)
+#   ./ga1ahad_tui render --workers 8   render ./ga1ahad.mp4 (1920x1080, 30fps, with audio)
+#   ./ga1ahad_tui png --at 17.6        render a still to build/frame.png
+#   ./ga1ahad_tui check                verify timeline, audio, mp4 and sync
+#   ./ga1ahad_tui info                 show environment details
+set -euo pipefail
+
+HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$HERE"
+
+PY="${GA1AHAD_PYTHON:-}"
+if [ -z "$PY" ]; then
+  if [ -x "$HERE/.venv/bin/python" ]; then
+    PY="$HERE/.venv/bin/python"
+  elif command -v uv >/dev/null 2>&1 && [ -f "$HERE/pyproject.toml" ]; then
+    exec uv run --project "$HERE" python -m ga1ahad "$@"
+  else
+    PY="$(command -v python3)"
+  fi
+fi
+
+export PYTHONPATH="$HERE${PYTHONPATH:+:$PYTHONPATH}"
+export PYTHONUNBUFFERED=1
+
+# NixOS/PyPI manylinux wheels need a few shared libraries that are not in the
+# default ld path.  Probe once and only patch LD_LIBRARY_PATH when necessary.
+if ! "$PY" -c "import numpy, PIL" >/dev/null 2>&1; then
+  EXTRA=""
+  for z in /nix/store/*/lib/libz.so.1; do
+    [ -e "$z" ] && EXTRA="$(dirname "$z")" && break
+  done
+  for g in /nix/store/*-gcc-*-lib/lib; do
+    if [ -e "$g/libstdc++.so.6" ]; then
+      EXTRA="$EXTRA:$g"
+      break
+    fi
+  done
+  if [ -n "$EXTRA" ]; then
+    export LD_LIBRARY_PATH="$EXTRA${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
+  fi
+fi
+if ! "$PY" -c "import numpy, PIL" >/dev/null 2>&1; then
+  echo "ga1ahad_tui: Python runtime is missing numpy/Pillow." >&2
+  echo "  install with:  uv sync     (or: $PY -m pip install numpy pillow)" >&2
+  exit 3
+fi
+
+exec "$PY" -m ga1ahad "$@"

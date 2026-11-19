@@ -1,0 +1,23 @@
+# Text audit configuration -- used by `./ga1ahad_tui audit-text`.
+#
+# The story now uses the real-world names directly.  `forbidden` keeps the
+# retired in-fiction stand-ins out of scene/UI sources, content and docs, so a
+# half-finished rename can never ship.  `enforce_terms` makes the lint fail when
+# a canonical glossary value is hard-coded as a raw string in scene/UI code
+# instead of using {term_key}.
+
+[audit]
+forbidden = [
+  # companies
+  "FreeSI",
+  "Croud",
+  "Antromix",
+  # people (bare "john" also catches john_handle / john_digga)
+  "John Digga",
+  "john",
+  "Dahlia Amnie",
+  "dahlia_amnie",
+  # model
+  "decoder",
+]
+enforce_terms = "all"

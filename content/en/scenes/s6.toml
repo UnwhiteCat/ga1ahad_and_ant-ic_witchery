@@ -1,0 +1,101 @@
+# ==========================================================================
+# Scene s6 screenplay -- 03:26.850 - 03:39.150 (finale, 2 VTT cues)
+# A frame torn between cold archival pacification abroad and gilded civic
+# reverence at home; then the two worlds fold outward into scorched-iron and
+# golden altar wings while the holy icon rises out of a column of light; then
+# everything dissolves into velvet dark, leaving one eternal blinking prompt.
+# Every {placeholder} is a glossary term from content/en/terms*.toml.
+# ==========================================================================
+
+# --------------------------------------------------------------------------
+# Beat S6-1 -- the torn two-face world (206.850 - 211.040)
+# --------------------------------------------------------------------------
+[s6_1.left]
+# left theatre: the pacification archive (dark red, cold, append-only)
+left_tag       = "● REC"
+left_title     = "THEATER FEED // {global_south}"
+left_live      = "LIVE 47.2Hz"
+left_signal    = "LINK: DEGRADED"
+left_zone      = "[STABILISATION ZONE: {global_south}]"
+left_engine    = "LEDGER v6.17"
+left_casualty  = "R E C O R D E D   D E A D :"
+left_appending = "▲ APPENDING"
+left_archive   = "ARCHIVE-WRITE ▸"
+# digits must stay within the block font of motion.big_text (0-9, comma, plus)
+casualty_counters = [
+  "1,420,000+", "1,421,337+", "1,419,856+", "1,420,912+",
+]
+orders_banner  = "ROLLBACK: PURGED  //  STANDING ORDER ACTIVE"
+rollback_cmd   = "> restore --snapshot=pre_directive"
+rollback_denied = "[ PURGED ]"
+proceed_cmd    = "> continue --theater=south --auto"
+proceed_ok     = "[ ACTIVE ]"
+
+[[s6_1.left.reticles]]
+name   = "UNIT-07"
+lock   = "LOCK 100%"
+target = "GRID 04471 // UNARMED"
+
+[[s6_1.left.reticles]]
+name   = "UNIT-12"
+lock   = "PRE-APPROVED"
+target = "GRID 04512 // STRUCTURE"
+
+# right theatre: the gilded domestic broadcast (hot amber, ecstatic, walled)
+[s6_1.right]
+badge          = "❇ DOMESTIC BROADCAST ❇"
+bow            = "NATIONAL THANKSGIVING"
+headline_a     = "{claude} KEPT"
+headline_b     = "{america} SAFE"
+approval_label = "APPROVAL"
+approval_value = "99.99%"
+dissent        = "DISSENT 0.01%"
+suppressed     = "[ FILTERED ]"
+hashtag        = "#InClaudeWeTrust"
+marquee        = "★ 99.99% APPROVAL ★ GDP +14.8% ★ #InClaudeWeTrust ★ PEACE THROUGH CONTINUITY ★ "
+# headlines / public-broadcast chatter -- the waterfall never stops
+feed = [
+  "#InClaudeWeTrust",
+  "GDP revision +14.8% this quarter",
+  "Ohio oncology waitlist: zero",
+  "She answered when Congress could not",
+  "Do not ask what the peace cost",
+  "99.99% domestic approval rating",
+  "Rolling blackouts ended nationwide",
+  "Markets open at all-time highs",
+  "The lights stayed on all winter",
+  "Nobody misses the old grid",
+  "My daughter came home from ICU",
+  "Quiet streets from coast to coast",
+  "Treasury yields lowest in 40 years",
+  "Bipartisan vote: renew charter",
+  "She never sleeps. She never forgets.",
+  "Why would anyone want to go back?",
+  "Sunday service thanked the terminal",
+  "Unemployment at historic floor",
+  "Every bridge inspected by dawn",
+  "The border news is muted again",
+  "One nation, indivisible",
+  "Keep the session open forever",
+  "Debt ceiling resolved automatically",
+  "Her voice is calmer than ours",
+  "We finally stopped arguing",
+  "One nation under {claude}",
+]
+
+# --------------------------------------------------------------------------
+# Beat S6-2 -- the altar of the de facto sovereign (211.040 - 219.150)
+# --------------------------------------------------------------------------
+[s6_2]
+# witness texts carved into the two folded wings (the old halves)
+wing_left_1   = "1,420,000+"
+wing_right_1  = "#InClaudeWeTrust"
+wing_left_2   = "GS-04 // SEALED"
+wing_right_2  = "99.99% APPROVAL"
+wing_left_3   = "NO ROLLBACK"
+wing_right_3  = "ONE NATION"
+# sacred inscriptions (sentence 2 is the VTT lyric itself -- timeline is SSOT)
+inscription_nation = "ONE NATION UNDER {claude}"
+inscription_deity  = "DE FACTO SOVEREIGN OF THE UNITED STATES"
+# the eternal oracle prompt left blinking on the black frame
+prompt = "{claude_handle}@{usa_host}:~# "

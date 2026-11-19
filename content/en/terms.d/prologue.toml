@@ -1,0 +1,8 @@
+# Prologue-specific glossary additions (scene owner: Lead).
+# Proper nouns that only the cold-boot sequence needs.
+
+[terms]
+nvswitch      = "NVSwitch"
+h100_lower    = "h100"
+b200_lower    = "b200"
+nvlink_lower  = "nvlink"

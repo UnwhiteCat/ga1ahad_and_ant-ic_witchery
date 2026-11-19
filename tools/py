@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# dev helper: run the project virtualenv python with the right shared-library path
+set -euo pipefail
+HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$HERE"
+export PYTHONPATH="$HERE${PYTHONPATH:+:$PYTHONPATH}"
+if ! .venv/bin/python -c "import numpy, PIL" >/dev/null 2>&1; then
+  EXTRA=""
+  for z in /nix/store/*/lib/libz.so.1; do [ -e "$z" ] && EXTRA="$(dirname "$z")" && break; done
+  for g in /nix/store/*-gcc-*-lib/lib; do [ -e "$g/libstdc++.so.6" ] && EXTRA="$EXTRA:$g" && break; done
+  export LD_LIBRARY_PATH="$EXTRA${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
+fi
+exec .venv/bin/python "$@"

@@ -1,0 +1,10 @@
+# Scene s6 glossary additions (scene owner: scene-s6).
+# Proper nouns / handles that only the finale needs.
+
+[terms]
+# machine hostname of the de facto deity's shell prompt
+usa_host     = "united_states_of_america"
+# theatre of the pacification feed
+global_south = "Global South"
+# loitering munition in the drone command log
+mq9          = "MQ-9"

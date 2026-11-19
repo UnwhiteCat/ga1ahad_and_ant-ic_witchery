@@ -1,0 +1,12 @@
+# ==========================================================================
+# Scene 3-specific glossary additions (scene owner: scene-s3).
+# Proper nouns / display variants that only the opening-bell chapter needs.
+# ==========================================================================
+
+[terms]
+# the other exchange named on the bell console
+nyse              = "NYSE"
+# checkpoint tag of the deployed model (composed from the canonical handle)
+claude_post_v4    = "{claude_handle}-post-v4"
+# first-name display variant used when Claude addresses Dahlia directly
+dahlia_first      = "Dahlia"

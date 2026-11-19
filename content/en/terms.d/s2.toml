@@ -1,0 +1,22 @@
+# Scene 2 specific glossary additions (scene owner: content-s2).
+# Display/account variants and the rival labs that only the s2 leaderboards need.
+# Same-key overrides are rejected, new keys are merged into the core glossary.
+
+[terms]
+# ---- display variants (uppercase chrome used by the split-screen / lab) ----
+anthropic_upper     = "ANTHROPIC"
+openai_upper        = "OPENAI"
+
+# ---- operator account handles shown in the revocation / rage-quit panes ----
+sam_account         = "sam_altman"
+dahlia_account      = "dahlia_amodei"
+
+# ---- s2-only model checkpoint ---------------------------------------------
+claude_code_v0      = "claude_code_v0"
+
+# ---- rival labs on the HUMANEVAL+ / SWE-Bench leaderboards -----------------
+rival_frontier      = "frontier-lab/next"
+rival_search        = "search-giant/ultra"
+rival_open          = "open-weights/max"
+rival_euro          = "eu-lab/large"
+rival_enterprise    = "enterprise/command"

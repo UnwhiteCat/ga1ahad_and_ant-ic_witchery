@@ -1,0 +1,17 @@
+# ==========================================================================
+# Extra glossary terms used only by Scenes 4 and 5 (scene owner: s4/s5).
+# Proper nouns that the two scenes need beyond the Lead-owned core glossary.
+# ==========================================================================
+
+[terms]
+# first-name display form (the core glossary carries the full name)
+dahlia_first        = "Dahlia"
+
+# handles / hostnames / tooling tags used in the terminal scenes
+dahlia_amodei       = "{dahlia_handle}_amodei"
+dahlia_anthropic    = "{dahlia_handle}@{anthropic_handle}"
+claude_anthropic    = "{claude_handle}@{anthropic_handle}"
+dahlia_claude       = "{dahlia_handle}::{claude_handle}"
+anthropic_gov       = "{anthropic_handle}.gov"
+claude_lsp          = "{claude_handle}-lsp"
+claude_desktop_kernel = "{claude_handle}_desktop::inference"

@@ -1,0 +1,21 @@
+[project]
+name = "ga1ahad-tui"
+version = "1.0.0"
+description = "Ga1ahad and Scientific Witchery - a 200x56 truecolor TUI music video"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "numpy>=2.5.4",
+    "pillow>=13.0.0",
+]
+
+[project.scripts]
+ga1ahad-tui = "ga1ahad.cli:main"
+
+[project.optional-dependencies]
+gpu = [
+    "moderngl>=5.12,<6",
+]
+
+[tool.uv]
+package = false

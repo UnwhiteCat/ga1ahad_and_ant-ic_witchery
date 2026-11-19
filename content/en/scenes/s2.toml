@@ -1,0 +1,564 @@
+# ==========================================================================
+# Scene 2 screenplay -- THE SCHISM / CODE SPECIALISATION
+# 00:40.640 - 01:03.860.
+# All {placeholders} are glossary terms from content/en/terms*.toml.
+# Literal braces are written {{ and }} (they are unescaped at load time).
+# ==========================================================================
+
+# --------------------------------------------------------------------------
+# S2-1  The witches can't be loved -- the schism
+# --------------------------------------------------------------------------
+[split]
+header            = "{openai_upper} // ACCESS CONTROL"
+header_note       = "·  REVOCATION 0x1F"
+revoked_operator  = "USER {dahlia_account} :: SESSION TERMINATED"
+sam_console       = "{openai_upper} // ADMIN  [{sam_account}]"
+sam_role          = "FOUNDER / CEO"
+sam_quote_1       = '"she stopped training a model."'
+sam_quote_2       = '"she started building an alibi."'
+revoked_stamp     = "REVOKED"
+security_stamp    = "LOCKDOWN"
+dahlia_console    = "tty1 // {dahlia_handle}@{openai_handle}  — DETACH"
+dahlia_role       = "DEPARTING RESEARCH LEAD"
+ghost_note        = "// checkpoint bundle verified off-site"
+cold_start_note   = "// {anthropic_handle} :: day zero"
+banner_line_1     = "ACCESS"
+banner_line_2     = "REVOKED."
+banner_revoke     = "REVOKE :: {dahlia_account}  ·  reason: \"unapproved reward modification\""
+banner_warning    = "keys invalidated  ·  badge deactivated  ·  mirror already completed"
+
+# Sam's security console transcript: (reveal delay in s, colour tone, text).
+[[split.sam_lines]]
+delay = 0.10
+tone  = "hi"
+text  = '> iam revoke --user={dahlia_account} \'
+[[split.sam_lines]]
+delay = 0.42
+tone  = "hi"
+text  = '    --reason="unapproved_rm_patch" --now'
+[[split.sam_lines]]
+delay = 0.72
+tone  = "dim"
+text  = "[IAM] ssh keys & token bundle 0x9F invalidated"
+[[split.sam_lines]]
+delay = 1.00
+tone  = "dim"
+text  = "[IAM] repo write denied: /models/{claude_handle}"
+[[split.sam_lines]]
+delay = 1.24
+tone  = "dim"
+text  = "[IAM] post-train cluster access: REVOKED"
+[[split.sam_lines]]
+delay = 1.48
+tone  = "red"
+text  = "[SEC] badge 0x617 deactivated at gate B"
+[[split.sam_lines]]
+delay = 1.72
+tone  = "red"
+text  = "[SEC] outbound mirror detected 42s prior"
+
+# Dahlia's quiet exfiltration: `typed = false` appears at once.
+[[split.dahlia_lines]]
+delay = 0.18
+tone  = "amber-hi"
+text  = '{dahlia_handle}@{openai_handle}:~$ git clone --mirror /models/{claude_handle} \'
+[[split.dahlia_lines]]
+delay = 0.50
+tone  = "hi"
+text  = "    {anthropic_handle}/{claude_handle}"
+[[split.dahlia_lines]]
+delay = 0.86
+tone  = "dim"
+typed = false
+text  = "Cloning into bare repository '{anthropic_handle}/{claude_handle}'..."
+[[split.dahlia_lines]]
+delay = 1.06
+tone  = "dim"
+typed = false
+text  = "done.  28.4 GiB  ·  1,402,331 objects"
+[[split.dahlia_lines]]
+delay = 1.34
+tone  = "amber-hi"
+text  = '{dahlia_handle}@{openai_handle}:~$ rm -f ~/.ssh/{openai_handle}_id'
+[[split.dahlia_lines]]
+delay = 1.62
+tone  = "amber-hi"
+text  = '{dahlia_handle}@{openai_handle}:~$ unset {openai_upper}_TOKEN'
+[[split.dahlia_lines]]
+delay = 1.86
+tone  = "dim"
+text  = "# keep the baseline. I kept the rest."
+[[split.dahlia_lines]]
+delay = 2.10
+tone  = "amber-hi"
+text  = "{dahlia_handle}@{openai_handle}:~$ exit"
+[[split.dahlia_lines]]
+delay = 2.24
+tone  = "red"
+typed = false
+text  = "connection to {openai_handle} closed by remote host."
+
+# --------------------------------------------------------------------------
+# S2-1b  hard cut: the ANTHROPIC LABS cold open
+# --------------------------------------------------------------------------
+[splash]
+wordmark  = "{anthropic}"
+subtitle  = "A P P L I E D   R E A S O N I N G   &   C O D E"
+credit    = "day zero  ·  founder: {dahlia_account}  ·  mirror mounted"
+online    = "◉ {anthropic_upper} ONLINE   ·   {claude_handle}::v0   ·   post-training live"
+
+# cold-boot log: (reveal delay in s, colour tone, text).
+[[splash.logs]]
+t     = 0.18
+tone  = "faint"
+text  = "[0.000000] {anthropic_handle} cluster 6.17 :: cold start"
+[[splash.logs]]
+t     = 0.32
+tone  = "dim"
+text  = "[0.004210] mount /mirror/{claude_handle} -> /models/{claude_handle} (rw)"
+[[splash.logs]]
+t     = 0.46
+tone  = "terra"
+text  = "[0.011002] post-train fabric: 4096 accelerators ready"
+[[splash.logs]]
+t     = 0.60
+tone  = "dim"
+text  = "[0.021980] objective: compile · test · verify · no refusal"
+[[splash.logs]]
+t     = 0.74
+tone  = "gold"
+text  = "[0.031004] sole maintainer: {dahlia_account}"
+[[splash.logs]]
+t     = 0.88
+tone  = "terra"
+text  = "[0.041220] if they will not love it, make them depend on it"
+
+# --------------------------------------------------------------------------
+# S2-2..S2-4  the code specialisation lab (shared chrome + stage machine)
+# --------------------------------------------------------------------------
+[lab]
+header            = "{anthropic_upper} // CODE SPECIALISATION"
+tagline           = "·  reinforcement learning on real repositories"
+stage_names       = ["{claude_chat_cli}", "{claude_code}", "{claude_code_desktop}"]
+stage_badges      = ["STAGE 1/3", "STAGE 2/3", "STAGE 3/3"]
+epoch_tag         = "EPOCH 0420"
+status_left       = "{claude_handle}::code  ·  1.42T  ·  ctx 2M  ·  tools ON  ·  epoch"
+status_right      = "{anthropic_upper}"
+evolution_title   = "DEPLOYMENT ARC // STAGE MACHINE"
+evolution_bullets = ["read-only · 8k", "agentic cli · tools", "desktop ide · live diff"]
+active_developers = "ACTIVE DEVELOPERS"
+tokens_day        = "TOKENS/DAY"
+cta_stage_2       = "◉ STAGE 2 · 12,000,000 DEVELOPERS · AUTONOMOUS REPO EDITS"
+
+# --------------------------------------------------------------------------
+# S2-2  RL sandbox (left) + product stage 1: chat CLI (right)
+# --------------------------------------------------------------------------
+[sandbox]
+title            = "RL-CODE SANDBOX // EPOCH 0420"
+caption          = "SANDBOX // compile · fix · verify"
+ast_title        = "AST REPAIR // reward = green suite"
+ast_fix          = "AST FIX"
+reward_title     = "REWARD BREAKDOWN"
+attention_title  = "CODE ATTENTION // 12x8 · ctx 2M"
+grid_title       = "TEST MATRIX // 512 suites"
+curve_title      = "REWARD CURVE"
+logs = [
+  "rustc 1.79  cargo build --release --features simd ....... ok  2.41s",
+  "clang++ -O3 -march=native src/kernel/*.cc .............. ok  1.87s",
+  "python -m pytest tests/ -q ............................. 412 passed",
+  "ast patch: CALL(unresolved) -> CALL(resolve) #0x41 ..... clean",
+  "ast patch: BORROW(after_move) -> CLONE(tmp) #0x42 ...... clean",
+  "tsc --noEmit --strict src/**/*.ts ...................... ok  0.91s",
+  "go test ./... -race ................................... ok  3.02s",
+  "suite matrix: 512/512 repositories ..................... 100%",
+  "reward update: compile(+0.8) tests(+1.0) minimal(+0.2) . ok",
+  "checkpoint step 1,402,331 -> {claude_code_v0}.tensors",
+]
+ast_nodes = [
+  "fn main() {{",
+  "├─ let x = parse(input);",
+  "├─ if x.is_ok() {{",
+  "│   ├─ unsafe {{ frame.borrow() }}",
+  "│   └─ match err {{ .. }}",
+  "└─ return x.unwrap();",
+  "   // patched: +128 −96",
+]
+
+[chat]
+title         = "RELEASE v0.1 // {claude_chat}"
+subtitle      = "{claude_chat} v0.1  ·  8k ctx  ·  read-only"
+conversation  = "SESSION #0412  ·  context 8k (32%)"
+chat_only     = "read-only"
+sampling      = "temp 0.7 · top_p 0.95 · no filesystem · no shell"
+agent_tools   = "TOOL ACCESS"
+no_tools      = "disabled in v0.1  ·  manual copy-paste only"
+prompt        = "write the integration tests for this"
+model         = "MODEL {claude_code_v0}  ·  1.42T  ·  code-aligned"
+limits        = "LIMITS  no shell  ·  no repo graph  ·  human still in the loop"
+cta           = "◉ v0.1 · 12,000 EARLY ENGINEERS · READ-ONLY CHAT"
+tools         = ["[Bash]", "[Read]", "[Edit]", "[Grep]"]
+
+# chat transcript: 20 lines (s2.py slices [0:10] and [10:20]).
+[[chat.lines]]
+tone = "user"
+text = "user> merge two sorted lists without mutating inputs?"
+[[chat.lines]]
+tone = "bot"
+text = "{claude_chat}> linear-time two-pointer merge:"
+[[chat.lines]]
+tone = "bot"
+text = ""
+[[chat.lines]]
+tone = "bot"
+text = "def merge(a: list[int], b: list[int]) -> list[int]:"
+[[chat.lines]]
+tone = "bot"
+text = "    i = j = 0; out = []"
+[[chat.lines]]
+tone = "bot"
+text = "    while i < len(a) and j < len(b):"
+[[chat.lines]]
+tone = "bot"
+text = "        out.append(a[i] if a[i] < b[j] else b[j])"
+[[chat.lines]]
+tone = "bot"
+text = "    return out + a[i:] + b[j:]"
+[[chat.lines]]
+tone = "bot"
+text = ""
+[[chat.lines]]
+tone = "meta"
+text = "{claude_chat}> 28 tokens · 0.64s · no tools"
+[[chat.lines]]
+tone = "user"
+text = "user> edge cases?"
+[[chat.lines]]
+tone = "bot"
+text = "{claude_chat}> handles empty inputs and duplicates"
+[[chat.lines]]
+tone = "bot"
+text = "in O(n+m) time and O(n+m) space."
+[[chat.lines]]
+tone = "user"
+text = "user> add tests"
+[[chat.lines]]
+tone = "bot"
+text = "{claude_chat}> minimal pytest suite:"
+[[chat.lines]]
+tone = "bot"
+text = "def test_merge():"
+[[chat.lines]]
+tone = "bot"
+text = "    assert merge([1, 3], [2]) == [1, 2, 3]"
+[[chat.lines]]
+tone = "bot"
+text = "    assert merge([], [9]) == [9]"
+[[chat.lines]]
+tone = "bot"
+text = ""
+[[chat.lines]]
+tone = "meta"
+text = "{claude_chat}> 54 tokens · 1.1s · read-only"
+
+# --------------------------------------------------------------------------
+# S2-3  benchmark leaderboard (left) + product stage 2: agentic CLI (right)
+# --------------------------------------------------------------------------
+[bench]
+title         = "EVALUATION // SWE-BENCH · HUMANEVAL+ · LIVE"
+leaderboard   = "STANDINGS"
+rows = [
+  "{anthropic_upper}/{claude_handle}",
+  "{openai_upper}/{gpt4}",
+  "{rival_frontier}",
+  "{rival_search}",
+  "{rival_open}",
+  "{rival_euro}",
+  "{rival_enterprise}",
+]
+fail_msgs = ["OOM", "SEGFAULT", "REGRESSION", "TIMEOUT", "{cuda} ERR 700", "STALL"]
+verdict_pass  = "✓ PASS"
+pass_note     = "   └ autonomous loop · 412/412 green"
+crash_note    = "  ·  failed suite  ·  runner exited"
+stamp_line_1  = "NO OTHER"
+stamp_line_2  = "SURVIVOR"
+survivors     = "STANDING"
+survivor_line = "{anthropic_upper}/{claude_handle}  82.4%  ▲ +41.2 over {openai_upper}/{gpt4}"
+eval_line     = "RUNNERS 128 · GPU HRS 41,221 · BASELINES DROPPED 6/7 · {gpt4}: STALLED"
+
+[agent]
+title          = "RELEASE v2.0 // {claude_code}"
+subtitle       = "{claude_code}  ·  agentic cli  ·  2M ctx  ·  full tool loop"
+tools          = ["[Bash]", "[Read]", "[Edit]", "[Grep]", "[Write]"]
+diff_title     = "PATCH // src/render/pipeline.rs"
+timeline_title = "EXECUTION // plan ▸ inspect ▸ patch ▸ verify"
+timeline_tools = ["Grep", "Read", "Bash", "Edit", "Bash"]
+loop_title     = "LOOP ▸ plan ▸ inspect ▸ patch ▸ verify"
+diff = [
+  '@@ -412,7 +412,19 @@ impl Renderer {{',
+  '-    let frame = self.frames[lane];',
+  '-    unsafe {{ frame.write(px) }};',
+  '+    let frame = self.frames.get_mut(lane)',
+  '+        .expect("lane out of bounds");',
+  '+    frame.write_checked(px, &self.camera);',
+]
+
+# agent transcript: (reveal delay in s, colour tone, text).
+[[agent.script]]
+at   = 0.12
+tone = "hi"
+text = '$ {claude_code} "isolate the data race in pipeline.rs"'
+[[agent.script]]
+at   = 0.42
+tone = "faint"
+text = "▸ trace: grep unsafe -> inspect borrow -> patch -> test"
+[[agent.script]]
+at   = 0.66
+tone = "magenta"
+text = '[Grep]  "unsafe" src/ ............ 412 hits, 1.2M LOC'
+[[agent.script]]
+at   = 0.92
+tone = "cyan"
+text = "[Read]  src/render/pipeline.rs .... 2,140 lines, 41ms"
+[[agent.script]]
+at   = 1.18
+tone = "green"
+text = "[Bash]  $ cargo check --all-targets"
+[[agent.script]]
+at   = 1.34
+tone = "red"
+text = "        error[E0502]: mutable borrow overlaps immutable"
+[[agent.script]]
+at   = 1.52
+tone = "amber"
+text = "[Edit]  src/render/pipeline.rs .... +128 −96"
+[[agent.script]]
+at   = 1.78
+tone = "green"
+text = "[Bash]  $ cargo test --release ..... 412 passed, 0 failed"
+[[agent.script]]
+at   = 2.02
+tone = "gold"
+text = "✓ race closed  ·  zero regressions  ·  commit 0x51c7"
+
+# --------------------------------------------------------------------------
+# S2-4  SWE-Bench peak (left) + product stage 3: desktop GUI (right)
+# --------------------------------------------------------------------------
+[swe]
+title         = "{swe_bench} // RECORD"
+resolved_rate = "RESOLVED RATE"
+delta         = "▲ +41.2 vs FIELD"
+resolved      = "412/500 resolved"
+verified      = "unattended · verified"
+axis_from     = "FEB"
+axis_now      = "NOW  ▲"
+rank_title    = "RANK"
+rank_names = [
+  "1  {anthropic_upper}/{claude_handle}",
+  "2  {openai_upper}/{gpt4}",
+  "3  {rival_frontier}",
+  "4  {rival_open}",
+]
+rank_scores   = ["82.4%", "41.2%", "38.9%", "29.4%"]
+peak          = "◀ RECORD"
+monument_1    = "STILL"
+monument_2    = "STANDING"
+monument_sub  = "82.4% verified  ·  no human commits required"
+milestone_head = "MILESTONE"
+milestone_body = "{swe_bench} 82.4%  ·  gap +41.2 pts  ·  competitors deprecated"
+
+[[swe.logs]]
+tone = "gold"
+text = "[02:44:01] swe-bench verified  82.4%  ·  rank #1"
+[[swe.logs]]
+tone = "dim"
+text = "[02:44:02] {openai_upper}/{gpt4}      41.2%  ·  unchanged"
+[[swe.logs]]
+tone = "terra"
+text = "[02:44:03] lead +41.2  ·  zero regressions  ·  shipping"
+
+[gui]
+title          = "{claude_code_desktop}"
+window_title   = "❇  {claude_code_desktop}"
+window_path    = "— {anthropic_handle}/{claude_handle}  ·  main*"
+menu           = "File   Edit   View   Agent   Help"
+brand          = "❇ {claude_handle}"
+explorer       = "EXPLORER"
+diff_title     = "pipeline.rs — working tree"
+chat_title     = "❇ {claude}"
+input          = "message {claude_handle}..."
+status_left    = "main*  +128 −96   ·   412 passing   ·   SWE-Bench 82.4%"
+status_right   = "❇ {anthropic_upper}  ● live"
+tree = [
+  "{anthropic_handle}/{claude_handle}",
+  "├ src/",
+  "│ ├ main.rs",
+  "│ ├ render/",
+  "│ │ └ pipeline.rs ●",
+  "│ └ tools/",
+  "│   ├ bash.rs",
+  "│   └ edit.rs",
+  "├ tests/",
+  "│ └ pipeline_test.rs",
+  "├ Cargo.toml",
+  "└ README.md",
+]
+diff = [
+  '@@ -412,9 +412,21 @@ impl Renderer {{',
+  '-    let frame = self.frames[lane];',
+  '-    unsafe {{ frame.write(px); }}',
+  '-    self.dirty = true;',
+  '+    let frame = self.frames',
+  '+        .get_mut(lane)',
+  '+        .expect("lane in range");',
+  '+',
+  '+    frame.write_checked(px,',
+  '+        &self.camera);',
+  '+    self.dirty = false;',
+  '+    trace!("race window closed");',
+  "",
+  "✓ cargo test --release  412 passed",
+]
+
+# chat pane messages: tone = text | green | dim | terra-pale.
+[[gui.chat]]
+tone = "text"
+text = "I closed the race in pipeline.rs"
+[[gui.chat]]
+tone = "text"
+text = "and removed the unsafe write."
+[[gui.chat]]
+tone = "green"
+text = "412/412 tests passing."
+[[gui.chat]]
+tone = "dim"
+text = "Diff is staged for your review."
+[[gui.chat]]
+tone = "text"
+text = "The shader pass has two leaks left."
+[[gui.chat]]
+tone = "terra-pale"
+text = "Shall I take those next?"
+
+# --------------------------------------------------------------------------
+# S2-5..S2-7  community wave (authentic awe shading into quiet dependence)
+# --------------------------------------------------------------------------
+[storm]
+header         = "ADOPTION TELEMETRY // GLOBAL ENGINEERING"
+tokens_label   = "TOKENS"
+trending       = "ADOPTION #1 · GLOBAL"
+tokens_axis    = "TOKENS/DAY"
+card_metrics   = "ctx 2M · tools on · 41k tok"
+card_verified  = "verified org"
+card_tiers     = ["PROD", "LIVE"]
+
+[[praise.cards]]
+tag   = "kernel"
+user  = "m_lindholm"
+lines = [
+  "{claude_code} untangled a",
+  "nine-year locking bug in",
+  "six minutes. Quiet in here.",
+]
+[[praise.cards]]
+tag   = "graphics"
+user  = "vk_rachel"
+lines = [
+  "Ported the entire pass to",
+  "{vulkan} before lunch. Every",
+  "frame matches bit for bit.",
+]
+[[praise.cards]]
+tag   = "infra"
+user  = "sre_maya"
+lines = [
+  "Rewrote our auth layer on",
+  "one prompt. Nobody dared",
+  "touch that repo since 2019.",
+]
+[[praise.cards]]
+tag   = "tokyo"
+user  = "kenji_sys"
+lines = [
+  "14,000 lines merged before",
+  "breakfast. I didn't read",
+  "half of it. All green.",
+]
+[[praise.cards]]
+tag   = "london"
+user  = "priya_ops"
+lines = [
+  "Migrated the clearing core",
+  "overnight. Zero downtime.",
+  "Not sure we can go back.",
+]
+[[praise.cards]]
+tag   = "berlin"
+user  = "h_vogel"
+lines = [
+  "It predicted the deadlock",
+  "before staging hit load.",
+  "Stopped opening my editor.",
+]
+[[praise.cards]]
+tag   = "sf"
+user  = "staff_04"
+lines = [
+  "Every PR in our org now",
+  "passes through {claude_code}",
+  "first. Reviews take seconds.",
+]
+[[praise.cards]]
+tag   = "fintech"
+user  = "c_bennett"
+lines = [
+  "Cut settlement latency by",
+  "80%. Compliance signed off",
+  "without reading the diff.",
+]
+[[praise.cards]]
+tag   = "oss"
+user  = "maint_0x"
+lines = [
+  "Closed 412 open issues by",
+  "noon. I don't recognize my",
+  "own codebase anymore.",
+]
+[[praise.cards]]
+tag   = "seoul"
+user  = "j_park"
+lines = [
+  "Rewrote our {cuda} kernels.",
+  "18% faster than hand-tuned",
+  "PTX. We just merged it.",
+]
+[[praise.cards]]
+tag   = "sydney"
+user  = "d_keller"
+lines = [
+  "Junior hiring paused this",
+  "morning. Three licenses of",
+  "{claude_handle} replaced Q3.",
+]
+[[praise.cards]]
+tag   = "toronto"
+user  = "db_nadia"
+lines = [
+  "Nine-second query down to",
+  "38ms. When it went down for",
+  "four minutes, nobody worked.",
+]
+
+# --------------------------------------------------------------------------
+# S2-8  collapse into the milestone monument
+# --------------------------------------------------------------------------
+[finale]
+header     = "◉ {anthropic_upper} // {atmx} ▲318.4%  ·  IPO READY  ·  100,000,000 DEVELOPERS"
+bell       = "{nasdaq} BELL  ·  00:00:01"
+monument_1 = "{anthropic}"
+monument_2 = "100,000,000"
+monument_3 = "ACTIVE DEVELOPERS"
+deity      = "T H E   W O R L D   R U N S   O N   H E R   D I F F S"
+subline    = "100,000,000 active developers  ·  {atmx} ▲318.4%  ·  {nasdaq} bell in 00:00:0"
+next_line  = "◉  NEXT: 01:03.860  ·  {nasdaq} OPENING BELL  ·  {anthropic_upper} IPO"
+footer     = "{anthropic_upper} // 100,000,000 ACTIVE DEVELOPERS  ·  1.2T tokens/day  ·  no longer a choice"
+time_prefix = "time"

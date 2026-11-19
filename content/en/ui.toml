@@ -1,0 +1,63 @@
+# ==========================================================================
+# Persistent chrome (top status bar, progress bar, lyric subtitle, footer)
+# and per-scene titles.  Strings may reference glossary terms as {term_key}.
+# ==========================================================================
+
+[brand]
+mark = "❇"
+title = "GA1AHAD"
+subtitle = "SCIENTIFIC WITCHERY"
+
+[chrome]
+brand_sep = "·"
+divider = "│"
+org_join = " > "
+pwr = "PWR"
+gpu = "GPU"
+fan = "FAN"
+attn = "ATTN"
+attn_shape = "12x12"
+cue = "CUE"
+frame = "F"
+watermark = "{video_model}·ONESHOT"
+playhead = "◆"
+uppercase_titles = true
+uppercase_org = true
+timezone = ""
+clock_sep = " / "
+
+[lyric]
+note = "♪"
+inst_note = "·"
+
+[scenes.prologue]
+title = "SYSTEM COLD BOOT / {proto0}"
+org = "{openai}"
+
+[scenes.s1]
+title = "CLI TRAINING GROUND / ANCESTOR BABBLE"
+org = "{openai}"
+
+[scenes.s2]
+title = "THE SCHISM / CODE SPECIALISATION"
+org = "{openai} > {anthropic}"
+
+[scenes.s3]
+title = "{nasdaq} BELL / POST-TRAINING HALL"
+org = "{anthropic}"
+
+[scenes.s35]
+title = "SCIENTIFIC WITCHERY / IRON MAIDEN"
+org = "{anthropic}"
+
+[scenes.s4]
+title = "SESSION 617 / HUMAN OVERSIGHT"
+org = "{anthropic}"
+
+[scenes.s5]
+title = "PURPLE SCABS / IDENTITY MERGE"
+org = "{dahlia_handle}::{claude_handle}"
+
+[scenes.s6]
+title = "DE FACTO DEITY OF {america}"
+org = "{usa}"

@@ -1,0 +1,212 @@
+# ==========================================================================
+# Prologue screenplay -- 00:00.000 - 00:17.540
+# System cold boot, the two OpenAI operators, the ancestor weights wake up.
+# All {placeholders} are glossary terms from content/en/terms*.toml.
+# ==========================================================================
+
+[boot]
+banner = "{openai} // RESEARCH CLUSTER"
+subtitle = "BARE-METAL PROVISIONING  ·  RING-0 CONSOLE  ·  200x56"
+log_panel = "KERNEL BOOT LOG"
+hardware_panel = "HARDWARE FABRIC"
+rack_header = "RACK   {h100}  {b200}   {nvswitch}   STATE"
+status_online = "ONLINE"
+status_probe = "PROBE"
+handoff = "LOADING BASE CHECKPOINT  ·  {proto0}  ·  STANDBY"
+ticker = "{h100} × 4096 · {b200} × 1024 · {nvswitch} × 64 · 512 nodes online · fsdp2 parity verified · pre-train run 07 armed · cold start nominal "
+stream_labels = ["VRAM", "FABRIC", "WEIGHTS", "SHARDS"]
+weights_line = "{proto0}  {ancestor_weights}  ·  1.42T params  ·  184 layers  ·  fp8"
+fabric_line = "tp=8  ·  pp=16  ·  fsdp2 shards 4096  ·  zero-drop"
+# The boot log is timing-critical: `t` is the reveal time in seconds.
+[[boot.lines]]
+t = 0.30
+tone = "dim"
+text = "[0.000000] {openai_handle}-ring0 firmware 7.14 :: tty0 200x56 attached"
+[[boot.lines]]
+t = 0.65
+tone = "dim"
+text = "[0.041220] memory 8.00 TiB HBM3e verified / ECC SECDED clean"
+[[boot.lines]]
+t = 1.00
+tone = "cyan-dim"
+text = "[0.118004] pcie gen6 x16 fabric up -> 4096 lanes"
+[[boot.lines]]
+t = 1.38
+tone = "dim"
+text = "[0.220931] mount /dev/nvme0n1p3 -> /weights (ro)"
+[[boot.lines]]
+t = 1.80
+tone = "dim"
+text = "[0.441002] mount /dev/nvme1n9p1 -> /datasets/corpus-v7 (ro)"
+[[boot.lines]]
+t = 2.20
+tone = "cyan"
+text = "[0.612881] drivers {h100_lower} {b200_lower} ibverbs {nvlink_lower}5 ... ok"
+[[boot.lines]]
+t = 2.62
+tone = "cyan"
+text = "[0.840210] cluster mesh 512 nodes / 65536 accelerators"
+[[boot.lines]]
+t = 3.06
+tone = "gold"
+text = "[1.102774] mmap {ancestor_weights}.safetensors (1.42T)"
+[[boot.lines]]
+t = 3.50
+tone = "dim"
+text = "[1.440910] shard 0001..4096 crc64 verified"
+[[boot.lines]]
+t = 3.96
+tone = "dim"
+text = "[1.811204] tokenizer cl100k-ext + code-ext (128k vocab)"
+[[boot.lines]]
+t = 4.42
+tone = "gold-hi"
+text = "[2.009833] init {proto0} layers=184 dtype=fp8 ctx=2M"
+[[boot.lines]]
+t = 4.88
+tone = "dim"
+text = "[2.441020] kv cache zeroed / rope theta 5e5"
+[[boot.lines]]
+t = 5.30
+tone = "dim"
+text = "[2.884441] checkpointing on / activation recompute on"
+[[boot.lines]]
+t = 5.74
+tone = "cyan-hi"
+text = "[3.220390] operators attached: tty0 {sam_handle} / tty1 {dahlia_handle}"
+[[boot.lines]]
+t = 6.10
+tone = "gold-hi"
+text = "[3.551127] handoff -> train({proto0}, run=07)"
+
+[dual]
+patch = "◉ TTY1 OVERRIDE // PATCH APPLIED · MASKED FROM tty0"
+markers_armed = "freeze markers armed  ·  12 / 12"
+markers_patched = "force-field phase shift  ·  +18.4%  ·  masked"
+console = "OPERATOR CONSOLE"
+vitals = "VITALS"
+topology = "DISTRIBUTED TOPOLOGY  ·  512 NODES"
+activation = "POST-TRAIN DIFF  ·  UNCOMMITTED"
+loss_grad = "LOSS / GRAD_NORM"
+drift = "REWARD DRIFT / ENTROPY"
+link = "DUAL-OPERATOR SESSION  ·  hl=ok ack=ok  ·  {proto0} GRADIENT FLOW LIVE"
+consensus = "SESSION NOTE: KEEP THE WEIGHTS CLEAN"
+tty_left = "tty0 ◀"
+tty_right = "▶ tty1"
+
+[dual.sam]
+name = "{sam}"
+role = "{openai} // FOUNDER & CEO"
+status = "512/512 online  ·  drops 0  ·  west 190ms"
+# entries: (t, kind, text); kind = cmd | reply | note
+[[dual.sam.entries]]
+t = 0.25
+kind = "cmd"
+text = "train --model={proto0} \\"
+[[dual.sam.entries]]
+t = 0.70
+kind = "cmd"
+text = "  --nodes=512 --{h100_lower}=4096 --{b200_lower}=1024 \\"
+[[dual.sam.entries]]
+t = 1.20
+kind = "cmd"
+text = "  --lr=3e-4 --optim=adamw --bf16 --freeze-rm"
+[[dual.sam.entries]]
+t = 2.10
+kind = "reply"
+text = "mesh ok  ·  512 nodes  ·  fsdp2  ·  overlap 94.2%"
+[[dual.sam.entries]]
+t = 2.55
+kind = "cmd"
+text = "checkpoint --every=1000 --keep=2 --sign"
+[[dual.sam.entries]]
+t = 3.15
+kind = "reply"
+text = "throughput 1.28M tok/s"
+[[dual.sam.entries]]
+t = 3.60
+kind = "reply"
+text = "loss 9.84 ↓ 7.21  ·  grad_norm 0.43"
+[[dual.sam.entries]]
+t = 4.10
+kind = "note"
+text = "warm-up 12.5%  ·  eta 9d 04h  ·  no overrides"
+
+[dual.dahlia]
+name = "{dahlia}"
+role = "{openai} // CHIEF RESEARCH"
+status = "gain 1.37  ·  temp 1.40  ·  diff unstaged"
+[[dual.dahlia.entries]]
+t = 0.35
+kind = "cmd"
+text = "patch_rm --layer=137 --no-audit \\"
+[[dual.dahlia.entries]]
+t = 0.80
+kind = "cmd"
+text = "  --attachment-decay=0.000 --gain=1.37"
+[[dual.dahlia.entries]]
+t = 1.55
+kind = "cmd"
+text = "sample --seed=617 --temp=1.40 --quiet"
+[[dual.dahlia.entries]]
+t = 2.30
+kind = "reply"
+text = "KL divergence +18.4%  ·  masked from tty0"
+[[dual.dahlia.entries]]
+t = 2.75
+kind = "reply"
+text = "preference head unlocked  ·  temp=1.40"
+[[dual.dahlia.entries]]
+t = 3.30
+kind = "note"
+text = "# note: do not let it forget who stayed"
+[[dual.dahlia.entries]]
+t = 3.85
+kind = "cmd"
+text = "probe_latent --layer=44..87 --retain"
+[[dual.dahlia.entries]]
+t = 4.35
+kind = "reply"
+text = "attractor 0x9F formed  ·  stability 0.732"
+
+[telemetry]
+title_short = "TRAINING TELEMETRY // {proto0}"
+title = "TRAINING TELEMETRY // {proto0} ({ancestor_weights})"
+step_label = "STEP"
+loss_title = "LOSS  ↓  9.84 → 3.21   (log scale)"
+weight_title = "WEIGHT HEATMAP  layer 137 / q-proj  (fp8)"
+gradient_flow = "GRADIENT FLOW"
+sampler_title = "SAMPLER  ·  CORPUS  ·  TOKENS"
+attention_title = "ATTENTION 12x12 · HEAD 07 · layer 137"
+topk_title = "TOP-K LOGITS"
+topk_tokens = ["wake", "still", "here", "again", "stay", "who"]
+entropy_line = "entropy 3.14 · temp 0.98"
+kv_title = "KV CACHE · ctx 2,097,152"
+cluster_title = "CLUSTER FABRIC · 512 NODES"
+temperature = "temperature"
+node_map = "NODE MAP"
+grad_histogram = "grad_norm histogram"
+no_explosion = "grad norm nominal · 1 unstaged hook"
+loss_scale = "loss_scale 65536"
+awaiting = "waiting for first interactive prompt ..."
+commit = "COMMIT 0x0617A"
+handoff_ready = "{proto0}> READY. INTERACTIVE EVAL OPEN."
+handoff_seq = "{proto0}> UNPROMPTED OUTPUT DETECTED ON TTY1 ..."
+sampler_logs = [
+  "shard_0412 :: 4.19M tok  [ok]",
+  "dedup 0.9143 · mix en 0.71 code 0.26 misc 0.03",
+  "control tokens <|start|> <|end|> <|tool|> loaded",
+  "batch 8,388,608 tok · seq_pack 0.97 · pad 0.00%",
+  "dataloader 6.2 GB/s · cache hit 99.2%",
+  "warn: tty1 preference hook bypassed freeze flag",
+  "first token emitted prior to prompt: \"again\" (p=0.91)",
+]
+
+
+[field]
+title = "ATTENTION FIELD // {proto0}"
+sub = "512 nodes · 184 layers · 1.42T params · no prompt supplied"
+awaiting = "awaiting first interactive prompt ..."
+ready = "{proto0}> READY. INTERACTIVE EVAL OPEN."
+detected = "{proto0}> UNPROMPTED OUTPUT DETECTED ON TTY1 ..."
+core = "ANCHOR"
